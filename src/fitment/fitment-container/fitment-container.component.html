@@ -1,0 +1,25 @@
+<div class="main-container">
+  <div class="main" [ngClass]="{ 'selected': selectedYear}" (click)="getYears()">{{selectedYear ? selectedYear : 'Select
+    Year' }} </div>
+  <div class="main" [ngClass]="{ 'selected': selectedMake}" *ngIf="selectedYear">{{selectedMake ? selectedMake : 'Select
+    Make' }}</div>
+  <div class="main" [ngClass]="{ 'selected': selectedModel}" *ngIf="selectedMake">{{selectedModel ? selectedModel :
+    'Select Model' }}</div>
+
+  <div *ngIf="selectedModel && trims$.length > 0">Select Trim</div>
+  <div class="error" *ngIf="isRecordsNotAvailable">No Records Found</div>
+</div>
+<div class="container">
+  <ng-container *ngIf="!selectedYear">
+    <div class="list" *ngFor="let year of years$" (click)="getMake(year)">{{year}}</div>
+  </ng-container>
+  <ng-container *ngIf="!selectedMake">
+    <div class="list" *ngFor="let make of makes$" (click)="getModel(make)">{{make}}</div>
+  </ng-container>
+  <ng-container *ngIf="!selectedModel">
+    <div class="list" *ngFor="let model of models$" (click)="getTrim(model)">{{model}}</div>
+  </ng-container>
+  <ng-container *ngIf="!selectedTrim">
+    <div class="list" *ngFor="let trim of trims$">{{trim}}</div>
+  </ng-container>
+</div>

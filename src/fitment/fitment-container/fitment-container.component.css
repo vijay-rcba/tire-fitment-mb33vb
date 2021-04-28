@@ -1,0 +1,31 @@
+.main-container,
+.containar {
+  padding: 30px;
+}
+.main-container div {
+  margin: 5px;
+}
+
+.list {
+  width: 150px;
+  height: 30px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+}
+
+.main {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 10px;
+}
+
+.selected {
+  background: blue;
+  color: white;
+}
+
+.error {
+  color: red;
+}
